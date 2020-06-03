@@ -11,7 +11,8 @@ public class NameTransfer : MonoBehaviour
 
     [SerializeField] float multiplier = 2f;
 
-    float theResultFloat;
+    float inputFloat;
+    float resultFloat;
 
     public GameObject inputField;
     public GameObject textDisplay;
@@ -42,17 +43,16 @@ public class NameTransfer : MonoBehaviour
 
     public void MultiplyValues() //initiates on enter
     {
-        if (isValidInput) //todo fix
+        for (int i = 0; i < 2; i++) // todo make cleaner, just covers 2-click bug right now
         {
-            for(int i = 0; i < 3; i++) // todo make cleaner, just covers  2-click bug right now
-            {
-                float theNumberFloat = float.Parse(theNumberString);
-                string theResultString = theResultFloat.ToString();
+            float inputFloat = float.Parse(theNumberString);
 
-                theResultFloat = theNumberFloat * multiplier;
 
-                textDisplay.GetComponent<Text>().text = theResultString;
-            }  
+            string theResultString = resultFloat.ToString();
+
+            resultFloat = inputFloat * multiplier;
+
+            textDisplay.GetComponent<Text>().text = theResultString;
         }
     }
 }
