@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [DisallowMultipleComponent]
 public class ButtonHandler : MonoBehaviour
 {
-    float inputFloat;
+
 
     public void SetText(string text)
     {
@@ -14,8 +14,5 @@ public class ButtonHandler : MonoBehaviour
         txt.text = text;
     }
 
-    public void MultiplyButtonPushed()
-    {
-        SendMessage("Multiply", inputFloat);
-    }
+
 }
