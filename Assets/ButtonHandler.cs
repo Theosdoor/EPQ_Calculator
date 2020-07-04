@@ -6,13 +6,43 @@ using UnityEngine.UI;
 [DisallowMultipleComponent]
 public class ButtonHandler : MonoBehaviour
 {
+    [SerializeField] int numberInput;
 
-
-    public void SetText(string text)
+    private void Start()
     {
-        Text txt = transform.Find("Text").GetComponent<Text>();
-        txt.text = text;
+        string stringInput = gameObject.name;
+        numberInput = int.Parse(stringInput);
+        GetInput();
+    }
+
+    public int GetInput()
+    {
+        numberInput = numberInput + 1;
+        return numberInput;
     }
 
 
+
+
+
+
+
+
+
+
+
+    //ignore below for now
+
+    private void Update()
+    {
+        ProcessInput();
+    }
+
+    private void ProcessInput ()
+    {
+        if (Input.GetKey(KeyCode.Plus))
+        {
+            print("hello");
+        }
+    }
 }

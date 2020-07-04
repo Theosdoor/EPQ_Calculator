@@ -17,7 +17,7 @@ public class MultiplicationHandler : MonoBehaviour
     {
         
         //print("Received"); //todo multiply input on press (perhaps take the string for the box
-                             //in this script when x pressed?
+                             //in this script when x pressed?)
     }
 
     public void MultiplyValues(float storedInputFloat) // initiates on press
