@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonHandler : MonoBehaviour
+public class DisplayHandler : MonoBehaviour
 {
-
-
     // Start is called before the first frame update
     void Start()
     {
