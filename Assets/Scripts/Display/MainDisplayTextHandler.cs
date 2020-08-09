@@ -6,11 +6,12 @@ using TMPro;
 public class MainDisplayTextHandler : MonoBehaviour
 {
     TextMeshProUGUI mainText;
+    string previousNumberString;
 
     void Start()
     {
         mainText = GetComponent<TextMeshProUGUI>();
-        mainText.text = " ";
+        ClearText();
     }
 
     public void UpdateNumberDisplay(int numberValue)

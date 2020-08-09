@@ -10,7 +10,7 @@ public class SubtextHandler : MonoBehaviour
     void Start()
     {
         subtext = GetComponent<TextMeshProUGUI>();
-        subtext.text = " ";
+        ClearText();
     }
 
     public void ClearText()
