@@ -7,6 +7,7 @@ public class MainDisplayTextHandler : MonoBehaviour
 {
     TextMeshProUGUI mainText;
     string previousNumberString;
+    bool hasReceivedNumber = false;
 
     void Start()
     {
@@ -14,9 +15,21 @@ public class MainDisplayTextHandler : MonoBehaviour
         ClearText();
     }
 
-    public void UpdateNumberDisplay(int numberValue)
+    public void UpdateNumberDisplay(string numberString)
     {
-        mainText.text = numberValue.ToString();
+        mainText.text = numberString;
+    }
+
+    public void ReceiveNumber(int numberValue)
+    {
+        if(hasReceivedNumber == false)
+        {
+            previousNumberString = " ";
+            hasReceivedNumber = true;
+        }
+        string newNumberString = previousNumberString + numberValue.ToString();
+        previousNumberString = newNumberString;
+        UpdateNumberDisplay(newNumberString);
     }
 
     public void ClearText()

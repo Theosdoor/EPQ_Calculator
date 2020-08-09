@@ -22,6 +22,6 @@ public class NumberButton : MonoBehaviour
 
     public void SendValueToDisplay()
     {
-        FindObjectOfType<MainDisplayTextHandler>().UpdateNumberDisplay(buttonValue);
+        FindObjectOfType<MainDisplayTextHandler>().ReceiveNumber(buttonValue);
     }
 }
