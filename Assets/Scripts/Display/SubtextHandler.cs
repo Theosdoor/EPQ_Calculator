@@ -15,6 +15,6 @@ public class SubtextHandler : MonoBehaviour
 
     public void ClearText()
     {
-        subtext.text = " ";
+        subtext.text = "";
     }
 }

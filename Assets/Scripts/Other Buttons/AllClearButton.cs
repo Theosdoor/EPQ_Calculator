@@ -12,6 +12,6 @@ public class AllClearButton : MonoBehaviour
     public void ClearDisplay()
     {
         subtextDisplay.ClearText();
-        mainTextDisplay.ClearText();
+        mainTextDisplay.ClearAllText();
     }
 }

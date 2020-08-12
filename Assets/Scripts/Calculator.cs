@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Calculator : MonoBehaviour
 {
-    [SerializeField] List<int> numberList = new List<int>();
+    //[SerializeField] List<int> numberList = new List<int>();
 
-    public void StoreNumber(int numberValue)
-    {
-        numberList.Add(numberValue);
-    }
+    //public void StoreNumber(int numberValue)
+    //{
+    //    numberList.Add(numberValue);
+    //}
+
+
 }

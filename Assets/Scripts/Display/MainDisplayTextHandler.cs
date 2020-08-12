@@ -6,34 +6,59 @@ using TMPro;
 public class MainDisplayTextHandler : MonoBehaviour
 {
     TextMeshProUGUI mainText;
-    string previousNumberString;
-    bool hasReceivedNumber = false;
+    float newNumberValue;
+    string previousNumberString = "";
+    string functionString;
+    bool inFunction = false;
 
     void Start()
     {
         mainText = GetComponent<TextMeshProUGUI>();
-        ClearText();
+        ClearAllText();
     }
 
-    public void UpdateNumberDisplay(string numberString)
+    public void UpdateDisplay(string numberString)
     {
         mainText.text = numberString;
     }
 
     public void ReceiveNumber(int numberValue)
     {
-        if(hasReceivedNumber == false)
+        if (!inFunction)
         {
-            previousNumberString = " ";
-            hasReceivedNumber = true;
+            newNumberValue = float.Parse(previousNumberString + numberValue);
+            string newNumberString = newNumberValue.ToString();
+            UpdateDisplay(newNumberString);
+            previousNumberString = newNumberString;
         }
-        string newNumberString = previousNumberString + numberValue.ToString();
-        previousNumberString = newNumberString;
-        UpdateNumberDisplay(newNumberString);
+        else
+        {
+            newNumberValue = float.Parse(previousNumberString + numberValue);
+            string newNumberString = newNumberValue.ToString();
+            string newFullString = functionString + newNumberString;
+            UpdateDisplay(newFullString);
+            previousNumberString = newNumberString;
+        }
     }
 
-    public void ClearText()
+    public void ShowAddition(float numberValue)
     {
-        mainText.text = " ";
+        string numberString = numberValue.ToString();
+        functionString = numberString + " + ";
+        UpdateDisplay(functionString);
+        previousNumberString = "";
+        inFunction = true;
+    }
+
+    public float GetNumberValue()
+    {
+        return newNumberValue;
+    }
+
+    public void ClearAllText()
+    {
+        mainText.text = "";
+        previousNumberString = "";
+        inFunction = false;
     }
 }
