@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Addition : MonoBehaviour
 {
+    public bool isAddition = false;
+
     MainDisplayTextHandler mainDisplay;
 
     private void Start()
@@ -11,11 +13,14 @@ public class Addition : MonoBehaviour
         mainDisplay = FindObjectOfType<MainDisplayTextHandler>();
     }
 
+    public void SetAsAddition()
+    {
+        isAddition = true;
+    }
+
     public void AddValues()
     {
-        float firstNumberValue = mainDisplay.GetNumberValue();
-
-        mainDisplay.ShowAddition(firstNumberValue); // could use update display method
-
+        print(mainDisplay.GetPreFunctionValue());
+        print(mainDisplay.GetPostFunctionValue());
     }
 }

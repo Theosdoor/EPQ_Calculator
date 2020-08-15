@@ -289,6 +289,7 @@ GameObject:
   - component: {fileID: 133292368}
   - component: {fileID: 133292367}
   - component: {fileID: 133292366}
+  - component: {fileID: 133292369}
   m_Layer: 5
   m_Name: Equals
   m_TagString: Untagged
@@ -358,7 +359,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 133292367}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 133292369}
+        m_MethodName: CompleteFunction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &133292367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,6 +408,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133292364}
   m_CullTransparentMesh: 0
+--- !u!114 &133292369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133292364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 376741bb9ce1a4b50b93a2aba3a9c36e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  additionButton: {fileID: 347887207}
+  mainDisplay: {fileID: 646620471}
 --- !u!1 &155946893
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,8 +1000,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 646620471}
+        m_MethodName: ShowAddition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 347887207}
-        m_MethodName: AddValues
+        m_MethodName: SetAsAddition
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1034,6 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b58c8594ed1bb48a18b492f8e53605d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAddition: 0
 --- !u!1 &357384611
 GameObject:
   m_ObjectHideFlags: 0

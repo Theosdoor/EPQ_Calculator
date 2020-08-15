@@ -11,6 +11,9 @@ public class MainDisplayTextHandler : MonoBehaviour
     string functionString;
     bool inFunction = false;
 
+    float preFunctionValue;
+    float postFunctionValue;
+
     void Start()
     {
         mainText = GetComponent<TextMeshProUGUI>();
@@ -24,35 +27,54 @@ public class MainDisplayTextHandler : MonoBehaviour
 
     public void ReceiveNumber(int numberValue)
     {
+        newNumberValue = float.Parse(previousNumberString + numberValue);
+        string newNumberString = newNumberValue.ToString();
+
         if (!inFunction)
         {
-            newNumberValue = float.Parse(previousNumberString + numberValue);
-            string newNumberString = newNumberValue.ToString();
             UpdateDisplay(newNumberString);
             previousNumberString = newNumberString;
+            preFunctionValue = newNumberValue;
+
         }
         else
         {
-            newNumberValue = float.Parse(previousNumberString + numberValue);
-            string newNumberString = newNumberValue.ToString();
             string newFullString = functionString + newNumberString;
             UpdateDisplay(newFullString);
             previousNumberString = newNumberString;
+            postFunctionValue = newNumberValue;
         }
     }
 
-    public void ShowAddition(float numberValue)
+    public void ShowAddition()
     {
-        string numberString = numberValue.ToString();
+        string numberString = newNumberValue.ToString();
         functionString = numberString + " + ";
         UpdateDisplay(functionString);
         previousNumberString = "";
         inFunction = true;
     }
 
+    public float GetPreFunctionValue()
+    {
+        return preFunctionValue;
+    }
+
+    public float GetPostFunctionValue()
+    {
+        return postFunctionValue;
+    }
+
     public float GetNumberValue()
     {
         return newNumberValue;
+    }
+
+    public void ResetValues()
+    {
+        ClearAllText();
+        preFunctionValue = 0;
+        postFunctionValue = 0;
     }
 
     public void ClearAllText()
