@@ -445,6 +445,7 @@ GameObject:
   - component: {fileID: 133292368}
   - component: {fileID: 133292367}
   - component: {fileID: 133292366}
+  - component: {fileID: 133292369}
   m_Layer: 5
   m_Name: Equals
   m_TagString: Untagged
@@ -514,7 +515,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 133292367}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 133292369}
+        m_MethodName: OnTapped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &133292367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,6 +564,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133292364}
   m_CullTransparentMesh: 0
+--- !u!114 &133292369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133292364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84fcc2f9fc4dc4562b4dc69c0880a2dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  functionType: 4
 --- !u!1 &155946893
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,6 +1058,7 @@ GameObject:
   - component: {fileID: 347887206}
   - component: {fileID: 347887205}
   - component: {fileID: 347887204}
+  - component: {fileID: 347887207}
   m_Layer: 5
   m_Name: Add
   m_TagString: Untagged
@@ -1102,7 +1128,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 347887205}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 347887207}
+        m_MethodName: OnTapped
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &347887205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1140,6 +1177,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 347887202}
   m_CullTransparentMesh: 0
+--- !u!114 &347887207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347887202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84fcc2f9fc4dc4562b4dc69c0880a2dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  functionType: 2
 --- !u!1 &357384611
 GameObject:
   m_ObjectHideFlags: 0
@@ -1583,8 +1633,9 @@ GameObject:
   - component: {fileID: 762138648}
   - component: {fileID: 762138651}
   - component: {fileID: 762138650}
+  - component: {fileID: 762138649}
   m_Layer: 5
-  m_Name: Display
+  m_Name: Main Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1610,6 +1661,18 @@ RectTransform:
   m_AnchoredPosition: {x: -208, y: 133.5}
   m_SizeDelta: {x: 316.00073, y: 64.588745}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &762138649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762138647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d977883081ee14e578a2862720c34f45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &762138650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1710,7 +1773,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1253193841}
+      - m_Target: {fileID: 774196432}
         m_MethodName: OnTapped
         m_Mode: 1
         m_Arguments:
@@ -1836,6 +1899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa0eff61771544a2861fbc1387a458f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainDisplay: {fileID: 762138649}
 --- !u!4 &1151111711
 Transform:
   m_ObjectHideFlags: 0
@@ -2325,7 +2389,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1253193841}
+      - m_Target: {fileID: 1357297922}
         m_MethodName: OnTapped
         m_Mode: 1
         m_Arguments:
