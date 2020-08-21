@@ -9,17 +9,16 @@ public class CalculationHandler : MonoBehaviour
 
     Dictionary<int, NumButton> numButtonDict = new Dictionary<int, NumButton>();
 
-    bool errorDisplayed, displayValid = false;
-
-    float currentVal;
-    float storedVal;
+    float currentVal, storedVal;
     float result;
     char storedOperator;
+    bool errorDisplayed, displayValid = false;
+    
 
     private void Start()
     {
         LoadButtons();
-        ButtonTapped('c');
+        ClearCalc();
     }
 
     private void LoadButtons()
@@ -51,7 +50,7 @@ public class CalculationHandler : MonoBehaviour
     {
         if (!errorDisplayed)
         {
-            mainDisplay.SetText(currentVal.ToString());
+            mainDisplay.SetText(currentVal.ToString() + storedOperator);
         }
         displayValid = false;
     }
@@ -69,28 +68,33 @@ public class CalculationHandler : MonoBehaviour
             case '-':
                 result = storedVal - currentVal;
                 break;
-            case 'x':
+            case '×':
                 result = storedVal * currentVal;
                 break;
             case '÷':
-                if (currentVal != 0)
-                {
-                    result = storedVal / currentVal;
-                }
-                else
-                {
-                    errorDisplayed = true;
-                    mainDisplay.DisplayError();
-                }
+                ProcessDivision();
                 break;
             default:
                 {
-                    Debug.Log("Unknown " + activeOperator);
+                    Debug.Log("Unknown operator: " + activeOperator);
                     break;
                 }
         }
         currentVal = result;
         UpdateMainDisplay();
+    }
+
+    private void ProcessDivision()
+    {
+        if (currentVal != 0)
+        {
+            result = storedVal / currentVal;
+        }
+        else
+        {
+            errorDisplayed = true;
+            mainDisplay.DisplayError();
+        }
     }
 
     public void ButtonTapped(char caption)
@@ -101,13 +105,13 @@ public class CalculationHandler : MonoBehaviour
         }
         if ((caption >= '0' && caption <= '9') || caption == '.')
         {
-            if(mainDisplay.GetTextLength() < 15 || !displayValid)
+            if (mainDisplay.GetTextLength() < 14 || !displayValid)
             {
                 if (!displayValid)
                 {
                     mainDisplay.SetText(caption == '.' ? "0" : "");
                 }
-                else if(mainDisplay.GetText() == "0" && caption != '.')
+                else if (mainDisplay.GetText() == "0" && caption != '.')
                 {
                     mainDisplay.SetText("");
                 }
@@ -115,11 +119,7 @@ public class CalculationHandler : MonoBehaviour
                 displayValid = true;
             }
         }
-        else if(caption == 'c')
-        {
-            ClearCalc();
-        }
-        else if(displayValid || storedOperator == '=')
+        else if (displayValid || storedOperator == '=')
         { 
             currentVal = float.Parse(mainDisplay.GetText());
             displayValid = false;

@@ -11,17 +11,17 @@ public class MainDisplay : MonoBehaviour
     void Start()
     {
         displayText = GetComponentInChildren<TextMeshProUGUI>();
-        displayText.text = "";
+        ClearText();
     }
 
-    public void SetText(string text)
+    public void SetText(string txt)
     {
-        displayText.text = text;
+        displayText.text = txt;
     }
 
     public void ClearText()
     {
-        displayText.text = "";
+        displayText.text = "0";
     }
 
     public void DisplayError()
