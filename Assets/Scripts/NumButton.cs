@@ -6,6 +6,8 @@ using TMPro;
 
 public class NumButton : MonoBehaviour
 {
+    [SerializeField] bool isNumber;
+
     int buttonValue;
     TextMeshProUGUI buttonText;
     char buttonChar;
@@ -14,7 +16,14 @@ public class NumButton : MonoBehaviour
     private void Awake()
     {
         buttonText = GetComponentInChildren<TextMeshProUGUI>();
-        buttonValue = int.Parse(buttonText.text);
+        if (isNumber)
+        {
+            buttonValue = int.Parse(buttonText.text);
+        }
+        else
+        {
+            buttonValue = 0;
+        }
         buttonChar = buttonText.text[0];
     }
 

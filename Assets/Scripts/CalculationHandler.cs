@@ -17,26 +17,26 @@ public class CalculationHandler : MonoBehaviour
 
     private void Start()
     {
-        LoadButtons();
+        //LoadButtons();
         ClearCalc();
     }
 
-    private void LoadButtons()
-    {
-        NumButton[] numButtons = FindObjectsOfType<NumButton>();
-        foreach (NumButton button in numButtons)
-        {
-            int buttonValue = button.GetButtonValue();
-            if (numButtonDict.ContainsKey(buttonValue))
-            {
-                Debug.LogWarning("Dictionary already contains a button value of " + buttonValue);
-            }
-            else
-            {
-                numButtonDict.Add(buttonValue, button);
-            }
-        }
-    }
+    //private void LoadButtons()
+    //{
+    //    NumButton[] numButtons = FindObjectsOfType<NumButton>();
+    //    foreach (NumButton button in numButtons)
+    //    {
+    //        int buttonValue = button.GetButtonValue();
+    //        if (numButtonDict.ContainsKey(buttonValue))
+    //        {
+    //            Debug.LogWarning("Dictionary already contains a button value of " + buttonValue);
+    //        }
+    //        else
+    //        {
+    //            numButtonDict.Add(buttonValue, button);
+    //        }
+    //    }
+    //}
 
     public void ClearCalc()
     {
