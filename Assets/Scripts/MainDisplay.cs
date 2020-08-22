@@ -43,4 +43,9 @@ public class MainDisplay : MonoBehaviour
     {
         displayText.text += caption;
     }
+
+    public void DeleteLastCharacter()
+    {
+        displayText.text.Remove(displayText.text.Length, -1);
+    }
 }

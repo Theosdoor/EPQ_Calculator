@@ -45,7 +45,12 @@ public class CalculationHandler : MonoBehaviour
         displayValid = errorDisplayed = false;
         storedOperator = ' ';
     }
- 
+
+    public void DeleteLastInput()
+    {
+        mainDisplay.DeleteLastCharacter();
+    }
+
     void UpdateMainDisplay()
     {
         if (!errorDisplayed)

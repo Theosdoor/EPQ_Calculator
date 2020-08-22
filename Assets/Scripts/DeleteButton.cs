@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClearButton : MonoBehaviour
+public class DeleteButton : MonoBehaviour
 {
     CalculationHandler calcHandler;
+    MainDisplay mainDisplay;
 
     private void Start()
     {
         calcHandler = FindObjectOfType<CalculationHandler>();
+        mainDisplay = FindObjectOfType<MainDisplay>();
     }
 
     public void OnTapped()
     {
-        calcHandler.ClearCalc();
+        mainDisplay.DeleteLastCharacter();
     }
 }
