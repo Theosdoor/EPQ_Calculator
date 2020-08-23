@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -11,7 +12,7 @@ public class CalculationHandler : MonoBehaviour
 
     float currentVal, storedVal;
     float result;
-    char storedOperator;
+    string storedOperator;
     bool errorDisplayed, displayValid = false;
     
 
@@ -43,7 +44,7 @@ public class CalculationHandler : MonoBehaviour
         mainDisplay.ClearText();
         currentVal = result = storedVal = 0;
         displayValid = errorDisplayed = false;
-        storedOperator = ' ';
+        storedOperator = "";
     }
 
     public void DeleteLastInput()
@@ -60,23 +61,23 @@ public class CalculationHandler : MonoBehaviour
         displayValid = false;
     }
 
-    void CalcResult(char activeOperator)
+    void CalcResult(string activeOperator)
     {
         switch (activeOperator)
         {
-            case '=':
+            case "=":
                 result = currentVal;
                 break;
-            case '+':
+            case "+":
                 result = storedVal + currentVal;
                 break;
-            case '-':
+            case "-":
                 result = storedVal - currentVal;
                 break;
-            case '×':
+            case "×":
                 result = storedVal * currentVal;
                 break;
-            case '÷':
+            case "÷":
                 ProcessDivision();
                 break;
             default:
@@ -102,21 +103,22 @@ public class CalculationHandler : MonoBehaviour
         }
     }
 
-    public void ButtonTapped(char caption)
+    public void ButtonTapped(bool isFunction, string caption)
     {
+        print(caption);
         if (errorDisplayed)
         {
             ClearCalc();
         }
-        if ((caption >= '0' && caption <= '9') || caption == '.')
+        if ((!isFunction && int.Parse(caption) >= 0 && int.Parse(caption) <= 9) || caption == ".")
         {
             if (mainDisplay.GetTextLength() < 14 || !displayValid)
             {
                 if (!displayValid)
                 {
-                    mainDisplay.SetText(caption == '.' ? "0" : "");
+                    mainDisplay.SetText(caption == "." ? "0" : "");
                 }
-                else if (mainDisplay.GetText() == "0" && caption != '.')
+                else if (mainDisplay.GetText() == "0" && caption != ".")
                 {
                     mainDisplay.SetText("");
                 }
@@ -124,14 +126,14 @@ public class CalculationHandler : MonoBehaviour
                 displayValid = true;
             }
         }
-        else if (displayValid || storedOperator == '=')
+        else if (displayValid || storedOperator == "=")
         { 
             currentVal = float.Parse(mainDisplay.GetText());
             displayValid = false;
-            if(storedOperator != ' ')
+            if(storedOperator != "")
             {
                 CalcResult(storedOperator);
-                storedOperator = ' ';
+                storedOperator = "";
             }
             mainDisplay.AddToText(caption);
             storedOperator = caption;

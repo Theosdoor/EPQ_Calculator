@@ -51,6 +51,6 @@ public class FunctionButton : MonoBehaviour
 
     public void OnTapped()
     {
-        calcHandler.ButtonTapped(buttonChar);
+        calcHandler.ButtonTapped(true, buttonText.text);
     }
 }

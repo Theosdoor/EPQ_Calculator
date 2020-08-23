@@ -39,7 +39,7 @@ public class MainDisplay : MonoBehaviour
         return displayText.text.Length;
     }
 
-    public void AddToText(char caption)
+    public void AddToText(string caption)
     {
         displayText.text += caption;
     }
