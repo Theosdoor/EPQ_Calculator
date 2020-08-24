@@ -8,12 +8,12 @@ public class CalculationHandler : MonoBehaviour
 {
     [SerializeField] MainDisplay mainDisplay;
 
-    Dictionary<int, NumButton> numButtonDict = new Dictionary<int, NumButton>();
+    //Dictionary<int, NumButton> numButtonDict = new Dictionary<int, NumButton>();
 
     float currentVal, storedVal;
     float result;
     string storedOperator;
-    bool errorDisplayed, displayValid = false;
+    bool errorDisplayed, displayValid, specialAction = false;
     
 
     private void Start()
@@ -43,7 +43,7 @@ public class CalculationHandler : MonoBehaviour
     {
         mainDisplay.ClearText();
         currentVal = result = storedVal = 0;
-        displayValid = errorDisplayed = false;
+        displayValid = errorDisplayed = specialAction = false;
         storedOperator = "";
     }
 
@@ -105,7 +105,6 @@ public class CalculationHandler : MonoBehaviour
 
     public void ButtonTapped(bool isFunction, string caption)
     {
-        print(caption);
         if (errorDisplayed)
         {
             ClearCalc();
@@ -126,7 +125,11 @@ public class CalculationHandler : MonoBehaviour
                 displayValid = true;
             }
         }
-        else if (displayValid || storedOperator == "=")
+        else if(caption == "Sin")
+        {
+            FindSineOfInput();
+        }
+        else if (displayValid || storedOperator == "=" || specialAction)
         { 
             currentVal = float.Parse(mainDisplay.GetText());
             displayValid = false;
@@ -139,6 +142,15 @@ public class CalculationHandler : MonoBehaviour
             storedOperator = caption;
             storedVal = currentVal;
             UpdateMainDisplay();
+            specialAction = false;
         }
+    }
+
+    private void FindSineOfInput()
+    {
+        float input = float.Parse(mainDisplay.GetText());
+        currentVal = Mathf.Sin(input * Mathf.Deg2Rad);
+        UpdateMainDisplay();
+        specialAction = true;
     }
 }
