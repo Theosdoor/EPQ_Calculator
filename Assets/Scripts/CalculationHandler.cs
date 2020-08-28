@@ -56,7 +56,14 @@ public class CalculationHandler : MonoBehaviour
     {
         if (!errorDisplayed)
         {
-            mainDisplay.SetText(currentVal.ToString() + storedOperator);
+            if (storedOperator == "=")
+            {
+                mainDisplay.SetText(currentVal.ToString());
+            }
+            else
+            {
+                mainDisplay.SetText(currentVal.ToString() + storedOperator);
+            }
         }
         displayValid = false;
     }
@@ -128,6 +135,7 @@ public class CalculationHandler : MonoBehaviour
         else if(caption == "Sin")
         {
             FindSineOfInput();
+            specialAction = true;
         }
         else if (displayValid || storedOperator == "=" || specialAction)
         { 

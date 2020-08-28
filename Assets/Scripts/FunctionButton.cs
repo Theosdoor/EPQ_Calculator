@@ -44,7 +44,7 @@ public class FunctionButton : MonoBehaviour
                 functionType = FunctionType.Equals;
                 break;
             default:
-                Debug.Log("Unknown function type: " + buttonChar);
+                //Debug.Log("Unknown function type: " + buttonChar);
                 break;
         }
     }
