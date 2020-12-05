@@ -13,7 +13,7 @@ public class CalculationHandler : MonoBehaviour
     float currentVal, storedVal;
     float result;
     string storedOperator;
-    bool errorDisplayed, displayValid, specialAction = false;
+    bool errorDisplayed, displayValid, specialAction = false; // i.e is display valid to do operation
     
 
     private void Start()
@@ -122,7 +122,7 @@ public class CalculationHandler : MonoBehaviour
             {
                 if (!displayValid)
                 {
-                    mainDisplay.SetText(caption == "." ? "0" : "");
+                    mainDisplay.SetText(caption == "." ? "0" : ""); // if there is number in front of . it becomes 6.7 etc. if there isn't then 0 is given as that number in front of .
                 }
                 else if (mainDisplay.GetText() == "0" && caption != ".")
                 {
@@ -132,16 +132,41 @@ public class CalculationHandler : MonoBehaviour
                 displayValid = true;
             }
         }
-        else if(caption == "Sin")
+        else if (caption == "sin")
         {
             FindSineOfInput();
             specialAction = true;
         }
+        else if (caption == "cos")
+        {
+            FindCosineOfInput();
+            specialAction = true;
+        }
+        else if (caption == "tan")
+        {
+            FindTanOfInput();
+            specialAction = true;
+        }
+        else if (caption == "!")
+        {
+            FindFactorialOfInput();
+            specialAction = true;
+        }
+        else if (caption == "√")
+        {
+            FindSqRootOfInput();
+            specialAction = true;
+        }
+        else if (caption == "x^2")
+        {
+            FindSquareOfInput();
+            specialAction = true;
+        }
         else if (displayValid || storedOperator == "=" || specialAction)
-        { 
+        {
             currentVal = float.Parse(mainDisplay.GetText());
             displayValid = false;
-            if(storedOperator != "")
+            if (storedOperator != "")
             {
                 CalcResult(storedOperator);
                 storedOperator = "";
@@ -154,11 +179,51 @@ public class CalculationHandler : MonoBehaviour
         }
     }
 
+
     private void FindSineOfInput()
     {
         float input = float.Parse(mainDisplay.GetText());
         currentVal = Mathf.Sin(input * Mathf.Deg2Rad);
         UpdateMainDisplay();
-        specialAction = true;
+    }
+
+    private void FindCosineOfInput()
+    {
+        float input = float.Parse(mainDisplay.GetText());
+        currentVal = Mathf.Cos(input * Mathf.Deg2Rad);
+        UpdateMainDisplay();
+    }
+
+    private void FindTanOfInput()
+    {
+        float input = float.Parse(mainDisplay.GetText());
+        currentVal = Mathf.Tan(input * Mathf.Deg2Rad);
+        UpdateMainDisplay();
+    }
+
+    private void FindFactorialOfInput()
+    {
+        float input = float.Parse(mainDisplay.GetText());
+        int fact = 1;
+        for (int i = 1; i <= input; i++)
+        {
+            fact = fact * i;
+        }
+        currentVal = fact;
+        UpdateMainDisplay();
+    }
+
+    private void FindSqRootOfInput()
+    {
+        float input = float.Parse(mainDisplay.GetText());
+        currentVal = Mathf.Sqrt(input);
+        UpdateMainDisplay();
+    }
+
+    private void FindSquareOfInput()
+    {
+        float input = float.Parse(mainDisplay.GetText());
+        currentVal = Mathf.Pow(input, 2);
+        UpdateMainDisplay();
     }
 }
