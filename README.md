@@ -3,4 +3,4 @@ This is a calculator I made for my Extended Project Qualification (2020/21). A f
 
 This involved over 120 hours of independent research to design a calculator interface in Unity that was both functional and easy to use. I met regularly with my supervisor and maintained a production log throughout to keep my progress on track. After I was happy with my calculator following an iterative design process, I uploaded it online using WebGL so I could easy share it for testing and feedback which I could use to further improve my design. At the end of the project, I had to produce a 5000 word report and present my project to a board of examiners, showing what I had achieved and learned.
 
-I used the C# and Unity 3D game engine to program and design the calculator. For version control I used SourceTree.
+I used the C# and Unity 3D game engine (version 2019.4.1f1) to program and design the calculator. For version control I used SourceTree.
