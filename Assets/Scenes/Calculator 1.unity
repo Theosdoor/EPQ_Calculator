@@ -2108,7 +2108,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 1.25
+  m_padding: 0
   m_canvasRenderer: {fileID: 334081325}
   m_TextComponent: {fileID: 1426157779}
   m_materialReferenceIndex: 1
@@ -3346,10 +3346,10 @@ RectTransform:
   m_Father: {fileID: 762138648}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 155.1, y: -32.293}
-  m_SizeDelta: {x: 310.22278, y: 64.59116}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -2.899994, y: 0.20700073}
+  m_SizeDelta: {x: -5.7772217, y: -0.40883636}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &646620469
 MonoBehaviour:
@@ -3413,7 +3413,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_firstOverflowCharacterIndex: -1
@@ -3421,7 +3421,7 @@ MonoBehaviour:
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
   m_enableKerning: 1
-  m_enableExtraPadding: 0
+  m_enableExtraPadding: 1
   checkPaddingRequired: 0
   m_isRichText: 1
   m_parseCtrlCharacters: 1

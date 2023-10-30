@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class CalculationHandler : MonoBehaviour
@@ -102,7 +99,7 @@ public class CalculationHandler : MonoBehaviour
             {
                 if (!displayValid)
                 {
-                    mainDisplay.SetText(caption == "." ? "0" : ""); // if there is number in front of . it becomes 6.7 etc. if there isn't then 0 is given as that number in front of .
+                    mainDisplay.SetText(caption == "." ? "0" : ""); // if there is number in front of '.' it becomes 6.7 etc. if there isn't then 0 is assumed as that number in front of '.'
                 }
                 else if (mainDisplay.GetText() == "0" && caption != ".")
                 {
@@ -162,8 +159,9 @@ public class CalculationHandler : MonoBehaviour
 
     private void FindSineOfInput()
     {
-        float input = float.Parse(mainDisplay.GetText());
-        currentVal = Mathf.Sin(input * Mathf.Deg2Rad);
+        float input = float.Parse(mainDisplay.GetText()); // get input from display
+        currentVal = Mathf.Sin(input * Mathf.Deg2Rad); // calculate sine of input by converting to radians
+        currentVal = (float)Math.Round(currentVal,6); // round to 5dp to avoid rounding errors caused by Deg2Rad
         UpdateMainDisplay();
     }
 
@@ -171,14 +169,24 @@ public class CalculationHandler : MonoBehaviour
     {
         float input = float.Parse(mainDisplay.GetText());
         currentVal = Mathf.Cos(input * Mathf.Deg2Rad);
+        currentVal = (float)Math.Round(currentVal, 6); // round to 5dp to avoid rounding errors
         UpdateMainDisplay();
     }
 
     private void FindTanOfInput()
     {
         float input = float.Parse(mainDisplay.GetText());
-        currentVal = Mathf.Tan(input * Mathf.Deg2Rad);
-        UpdateMainDisplay();
+        if ((input / 90) % 2 == 1) // if input is odd multiple of 90 degrees 
+        {
+            errorDisplayed = true;
+            mainDisplay.DisplayError();
+        }
+        else
+        {
+            currentVal = Mathf.Tan(input * Mathf.Deg2Rad);
+            currentVal = (float)Math.Round(currentVal, 6); // round to 5dp to avoid rounding errors
+            UpdateMainDisplay();
+        }
     }
 
     private void FindFactorialOfInput()
@@ -187,7 +195,7 @@ public class CalculationHandler : MonoBehaviour
         int fact = 1;
         for (int i = 1; i <= input; i++)
         {
-            fact = fact * i;
+            fact *= i;
         }
         currentVal = fact;
         UpdateMainDisplay();
