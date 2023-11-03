@@ -10,4 +10,6 @@ I used C# and the Unity 3D game engine (version 2019.4.1f1) to program and desig
 
 ## II How to use
 
-The calculator has 
+// include image of calculator
+
+The calculator has x buttons, including y function buttons. The +, -, ÷ and × work as would be expected on a generic calculator app. To get x + y, for example, press 
