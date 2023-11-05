@@ -1,6 +1,6 @@
 # EPQ Calculator
 
-This is a calculator I made for my Extended Project Qualification (2020/21). A google drive folder containing my **full** submission (including sources and references) can be found <a href="https://drive.google.com/drive/folders/17eVtX6k3sckr00V5xlsmQyD4ZomX0GNU?usp=drive_link" target="_blank">here</a>.
+This is a calculator I made for my Extended Project Qualification (2020/21). A google drive folder containing my **full** submission (including sources and references) can be found <a href="https://drive.google.com/drive/folders/17eVtX6k3sckr00V5xlsmQyD4ZomX0GNU?usp=drive_link" target="_blank">here</a>. I will try to upload my project as a WebGL project so I can share it here.
 
 ## I Background
 
