@@ -1,6 +1,6 @@
 # EPQ Calculator
 
-This is a calculator I made for my Extended Project Qualification (2020/21). A google drive folder containing my **full** submission can be found [here](https://drive.google.com/drive/folders/17eVtX6k3sckr00V5xlsmQyD4ZomX0GNU?usp=drive_link "See my submission in full!"), and you can have a play with it yourself on the web [here]!
+This is a calculator I made for my Extended Project Qualification (2020/21). A google drive folder containing my **full** submission can be found [here](https://drive.google.com/drive/folders/17eVtX6k3sckr00V5xlsmQyD4ZomX0GNU?usp=drive_link "See my submission in full!"), <a href="placeholder.com" target="_blank">Opens in new tab</a> and you can have a play with it yourself on the web [here]!
 
 ## I Background
 
