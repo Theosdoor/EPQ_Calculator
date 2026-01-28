@@ -1,5 +1,7 @@
 # EPQ Calculator
 
+![Screenshot of calculator](https://github.com/Theosdoor/EPQ_Calculator/blob/c7314bae3b8e1894356ba116e79ed16ebce2a30f/Calculator.png)
+
 This is a calculator I made for my Extended Project Qualification (2020/21). A google drive folder containing my **full** submission (including sources and references) can be found <a href="https://drive.google.com/drive/folders/17eVtX6k3sckr00V5xlsmQyD4ZomX0GNU?usp=drive_link" target="_blank">here</a>.
 
 ## I Background
@@ -9,8 +11,6 @@ This involved over 120 hours of independent research to design a calculator inte
 I used C# and the Unity 3D game engine (version 2019.4.1f1) to program and design the calculator. For version control I used SourceTree. My IDE for the project was Visual Studio.
 
 ## II How to use
-
-![Screenshot of calculator](https://github.com/Theosdoor/EPQ_Calculator/blob/c7314bae3b8e1894356ba116e79ed16ebce2a30f/Calculator.png)
 
 The calculator has 11 number buttons and 11 function buttons, plus an all-clear (AC) button. The +, -, ÷ and × work as would be expected on a generic calculator app. Click on the buttons to provide input (keyboard input is not supported!). 
 
